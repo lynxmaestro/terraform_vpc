@@ -11,3 +11,15 @@ Here is a simple document on how to use Terraform to build an AWS VPC along with
 - Easy to customise and use as the Terraform modules are created using variables,allowing the module to be customized without altering the module's own source code, and allowing modules to be shared between different configurations.
 - Each subnet CIDR block created automatically using cidrsubnet Function (Automated)
 - Project name is appended to the resources that are creating which will make easier to identify the resources.
+
+## Prerequisites for this project
+- Need a IAM user access with attached policies for the creation of VPC.
+- Knowledge to the working principles of each AWS services especially VPC, EC2 and IP Subnetting.
+
+## Used Languages
+- Bash (scripting)
+- Terraform (iaac)
+
+## Terraform Installation and VPC creation code and explanation :
+
+If you need to download terraform (Manually), then click here 
