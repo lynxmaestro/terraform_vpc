@@ -22,4 +22,9 @@ Here is a simple document on how to use Terraform to build an AWS VPC along with
 
 ## Terraform Installation and VPC creation code and explanation :
 
-If you need to download terraform (Manually), then click here 
+If you need to download terraform (Manually), then click here [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started)
+
+### Prerequisites
+- Create an IAM user on your AWS console that have access to create the required resources.
+- Create a dedicated directory where you can create terraform configuration files.
+
