@@ -28,3 +28,44 @@ If you need to download terraform (Manually), then click here [Terraform](https:
 - Create an IAM user on your AWS console that have access to create the required resources.
 - Create a dedicated directory where you can create terraform configuration files.
 
+~~~
+sample installation steps
+~~~
+
+~~~
+wget https://releases.hashicorp.com/terraform/0.15.3/terraform_0.15.3_linux_amd64.zip
+unzip terraform_0.15.3_linux_amd64.zip 
+ls -l
+-rwxr-xr-x 1 root root 79991413 May  6 18:03 terraform  <<=======
+-rw-r--r-- 1 root root 32743141 May  6 18:50 terraform_0.15.3_linux_amd64.zip
+mv terraform /usr/bin/
+which terraform 
+/usr/bin/terraform
+~~~
+
+### Create provider.tf file
+
+First we need to install the aws provider by creating a file provider.tf, because terraform will only look for .tf extensions in the project directory.
+~~~
+provider "aws" {
+  region     = var.region
+  access_key = access_key
+  secret_key = secret_access_key
+}
+~~~
+
+![image](https://github.com/user-attachments/assets/feef8b11-98bd-42c6-96b4-6123ef16dd30)
+
+~~~
+terraform init command is used to install the corresponding provider on the project directory.
+~~~
+![image](https://github.com/user-attachments/assets/4c7784c3-9460-4d01-8125-0f5be6652fa7)
+
+### Create a variables.tf file
+
+![image](https://github.com/user-attachments/assets/7428dbaa-563e-414c-b863-2fa6bd60f740)
+![image](https://github.com/user-attachments/assets/96bf03c4-117f-4091-a24d-fd71ff1f62e9)
+
+
+
+
