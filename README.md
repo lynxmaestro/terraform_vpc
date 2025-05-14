@@ -66,6 +66,40 @@ terraform init command is used to install the corresponding provider on the proj
 ![image](https://github.com/user-attachments/assets/7428dbaa-563e-414c-b863-2fa6bd60f740)
 ![image](https://github.com/user-attachments/assets/96bf03c4-117f-4091-a24d-fd71ff1f62e9)
 
+### Lets start creating main.tf file with the details below.
 
+> To create VPC.
+~~~
+resource "aws_vpc" "main" {
+  cidr_block           = var.pro_cidr
+  instance_tenancy     = "default"
+  enable_dns_hostnames = true
 
+  tags = {
+    Name    = "${var.pro_name}-${var.pro_env}-vpc"
+    Project = var.pro_name
+    Env     = var.pro_env
+  }
+}
+~~~
 
+> To Gather all availability zone names and output the details 
+~~~
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
+output "azs" {
+  value = data.aws_availability_zones.available
+}
+~~~
+
+> To create Internet Gateway for VPC
+~~~
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.main.id                                                                                                                                                                                                                                                                                                tags = {
+    Name    = "${var.pro_name}-${var.pro_env}-igw"
+    Project = var.pro_name
+    Env     = var.pro_env                                                                                                                                     }
+}     
+~~~
